@@ -81,18 +81,27 @@
 
   .hero-content { position: relative; z-index: 2; max-width: 800px; }
 
+  .eyebrow-mobile { display: none; }
+  .eyebrow-desktop { display: inline; }
+  @media (max-width: 600px) {
+    .eyebrow-mobile { display: inline; }
+    .eyebrow-desktop { display: none; }
+  }
   .eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.35em;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     animation: fadeUp 1s ease both;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-size: clamp(2.8rem, 12vw, 7rem);
     font-weight: 300;
     line-height: 0.95;
     color: var(--cream);
@@ -614,13 +623,14 @@
     gap: 0.5rem;
     border: 1px solid rgba(139,42,63,0.5);
     background: rgba(92,26,42,0.2);
-    padding: 0.5rem 1.2rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    padding: 0.45rem 1rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #d4a0a0;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     animation: fadeUp 1s ease 0.1s both;
+    white-space: nowrap;
   }
 
   .capacity-badge::before { content: '●'; color: var(--wine-light); font-size: 0.5rem; }
@@ -651,7 +661,7 @@
 
   <div class="hero-content">
     <div class="capacity-badge">By Invitation Only &nbsp;·&nbsp; Limited Seats</div>
-    <p class="eyebrow">Bryce North &nbsp;·&nbsp; Off The Vine Playacar &nbsp;·&nbsp; Playa del Carmen</p>
+    <p class="eyebrow"><span class="eyebrow-desktop">Bryce North &nbsp;·&nbsp; Off The Vine Playacar &nbsp;·&nbsp; Playa del Carmen</span><span class="eyebrow-mobile">Bryce North<br>Off The Vine Playacar<br>Playa del Carmen</span></p>
     <h1 class="hero-title">
       Una Noche en
       <em>Sudamérica</em>
@@ -880,7 +890,7 @@
 
     <div class="form-row">
       <label for="notes">Special Requests or Notes</label>
-      <textarea id="notes" placeholder="Celebrating an anniversary? Any additional requests?"></textarea>
+      <textarea id="notes" placeholder="Any special requests or notes?"></textarea>
     </div>
 
     <div class="form-note">
@@ -922,8 +932,8 @@
       <a href="tel:12042273941" style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--muted); text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
         <span style="color: var(--gold-dim);">☎</span> +1 204-227-3941
       </a>
-      <a href="mailto:hello@brycenorth.com" style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--muted); text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
-        <span style="color: var(--gold-dim);">✉</span> hello@brycenorth.com
+      <a href="/cdn-cgi/l/email-protection#19717c757576597b6b607a7c77766b6d71377a7674" style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--muted); text-decoration: none; margin-bottom: 0.75rem; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
+        <span style="color: var(--gold-dim);">✉</span> <span class="__cf_email__" data-cfemail="b1d9d4dddddef1d3c3c8d2d4dfdec3c5d99fd2dedc">[email&#160;protected]</span>
       </a>
       <a href="https://www.instagram.com/offthevineplayacar/" target="_blank" style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
         <span style="color: var(--gold-dim);">📷</span> @offthevineplayacar
@@ -989,7 +999,7 @@
   <p class="footer-copy">© 2025 Bryce North · Off The Vine Playacar · Playa del Carmen, Q.R.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal fallback - show all immediately
   document.querySelectorAll('.reveal').forEach(r => r.classList.add('visible'));
 
@@ -1039,12 +1049,4 @@
       document.getElementById('successMsg').classList.add('visible');
       btn.style.display = 'none';
     })
-    .catch(function() {
-      // Show success anyway — Zapier webhooks often return CORS errors but still receive data
-      document.getElementById('successMsg').classList.add('visible');
-      btn.style.display = 'none';
-    });
-  }
-</script>
-</body>
-</html>
+    .catch(functi
