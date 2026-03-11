@@ -900,8 +900,8 @@
     <button class="submit-btn" onclick="handleSubmit()"><span>Request Reservation</span></button>
 
     <div class="success-msg" id="successMsg">
-      <p>¡Gracias! Your request has been received.</p>
-      <p>We'll be in touch within 24 hours with your payment link and confirmation. We look forward to welcoming you to <em>Una Noche en Sudamérica</em>.</p>
+      <p>¡Gracias! You're on the list.</p>
+      <p>Bryce will be in contact with you shortly to confirm your reservation.</p>
     </div>
   </div>
 </section>
@@ -1001,7 +1001,7 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal fallback - show all immediately
-  document.querySelectorAll('.reveal').forEach(r => r.classList.add('visible'));
+  document.querySelectorAll('.reveal').forEach(function(r) { r.classList.add('visible'); });
 
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(function(q) {
@@ -1034,6 +1034,7 @@
 
     fetch('https://hooks.zapier.com/hooks/catch/14702862/uxa8i99/', {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
         first_name: fname,
@@ -1045,8 +1046,11 @@
         notes: notes
       })
     })
-    .then(function() {
-      document.getElementById('successMsg').classList.add('visible');
+    .finally(function() {
       btn.style.display = 'none';
-    })
-    .catch(functi
+      document.getElementById('successMsg').classList.add('visible');
+    });
+  }
+</script>
+</body>
+</html>
